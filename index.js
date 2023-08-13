@@ -10,15 +10,13 @@ app.use(cors())
 
 var menu
 
-conn.query('SELECT  * FROM "menu"', (err, result, fields) => {
-    if (err) throw err;
+conn.query('SELECT  * FROM "menu"', (result, fields) => {
     menu = result.rows
 })
 
 app.get('/get/menu', (req, res) => {
     if (err) throw err;
-    conn.query('SELECT  * FROM "menu"', (err, result, fields) => {
-        if (err) throw err;
+    conn.query('SELECT  * FROM "menu"', (result, fields) => {
         menu = result.rows
         res.send(result.rows)
     })
