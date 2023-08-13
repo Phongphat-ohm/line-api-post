@@ -18,6 +18,8 @@ conn.query('SELECT  * FROM "menu"', (err, result, fields) => {
 app.get('/get/menu', (req, res) => {
     conn.query('SELECT  * FROM "menu"', (err, result, fields) => {
     if (err) throw err;
+    conn.query('SELECT  * FROM "menu"', (err, result, fields) => {
+        if (err) throw err;
         menu = result.rows
         res.send(result.rows)
     })
@@ -103,6 +105,19 @@ app.post("/webhook", (req, res) => {
             console.log("ข้อความไม่เริ่มต้นด้วยคำที่กำหนด");
         }
     }
+})
+
+app.post('/insert', (req, res) => {
+    var body = req.body
+
+    var sql = `INSERT INTO "menu"(code, name, price, stock, url) VALUES('${body.code}', '${body.name}', '${body.price}', '${body.stock}', '${body.url}')`
+
+    conn.query(sql, (err, result, fields) => {
+        if (err) throw err;
+        res.send({
+            message: "Good"
+        })
+    })
 })
 
 app.listen(PORT, () => {
