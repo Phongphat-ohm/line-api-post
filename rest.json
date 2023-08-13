@@ -1,0 +1,24 @@
+{
+    "destination": "Uc9a01e674b9da89eda64261f7389845c",
+    "events": [
+        {
+            "type": "message",
+            "message": {
+                "type": "text",
+                "id": "468245138868011410",
+                "text": "ซื้อสินค้ารหัส: 15151515"
+            },
+            "webhookEventId": "01H7QBF5G60XAKZE3CADX2K8CT",
+            "deliveryContext": {
+                "isRedelivery": false
+            },
+            "timestamp": 1691927155847,
+            "source": {
+                "type": "user",
+                "userId": "U544c76500bc7ff51c8730bb9dd1cf9a4"
+            },
+            "replyToken": "e54e0c5147b64552be330a6a110b48d1",
+            "mode": "active"
+        }
+    ]
+}
