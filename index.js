@@ -12,15 +12,15 @@ var menu
 
 conn.query('SELECT  * FROM "menu"', (err, result, fields) => {
     if (err) throw err;
+    menu = result.rows
+})
+
+app.get('/get/menu', (req, res) => {
     conn.query('SELEC  * FROM "menu"', (err, result, fields) => {
     if (err) throw err;
         menu = result.rows
         res.send(result.rows)
     })
-})
-
-app.get('/get/menu', (req, res) => {
-    res.send(menu)
 })
 
 function sendMessage(message, req) {
