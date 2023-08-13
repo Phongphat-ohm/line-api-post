@@ -1,14 +1,11 @@
-const { Pool, Client}  = require('pg')
+const { Pool } = require('pg')
 
 const conn = new Pool({
-    host: "satao.db.elephantsql.com",
-    user: "mtrkomvv",
-    password: "0C6-50Wh_VlxgU6NP-_aSLo6c-UFTNS9",
-    database: "mtrkomvv"
+  connectionString: "postgres://default:B35yAwfQCSzT@ep-flat-brook-60149672-pooler.ap-southeast-1.postgres.vercel-storage.com:5432/verceldb?sslmode=require",
 })
 
 if(conn){
-    console.log("COnnection!");
+    console.log("Connect");
 }
 
 module.exports = conn
