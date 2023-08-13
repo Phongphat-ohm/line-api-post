@@ -16,7 +16,7 @@ conn.query('SELECT  * FROM "menu"', (err, result, fields) => {
 })
 
 app.get('/get/menu', (req, res) => {
-    conn.query('SELEC  * FROM "menu"', (err, result, fields) => {
+    conn.query('SELECT  * FROM "menu"', (err, result, fields) => {
     if (err) throw err;
         menu = result.rows
         res.send(result.rows)
