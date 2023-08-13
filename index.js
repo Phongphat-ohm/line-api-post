@@ -11,7 +11,7 @@ app.use(cors())
 var menu
 
 conn.query("SELECT * FROM menu", (err, result) => {
-    if(err)throw err;
+    if (err) throw err;
     menu = result.rows
 })
 
@@ -108,12 +108,17 @@ app.post("/webhook", (req, res) => {
 app.post('/insert', (req, res) => {
     var body = req.body
 
-    var sql = `INSERT INTO "menu"(code, name, price, stock, url) VALUES('${body.code}', '${body.name}', '${body.price}', '${body.stock}', '${body.url}')`
-
-    conn.query(sql, (err, result, fields) => {
+    conn.query("SELECT * FROM menu", (err, result) => {
         if (err) throw err;
-        res.send({
-            message: "Good"
+        const code = (result.rows.length + 1) + 10000
+
+        var sql = `INSERT INTO "menu"(code, name, price, stock, url) VALUES('${code}', '${body.name}', '${body.price}', '${body.stock}', '${body.url}')`
+
+        conn.query(sql, (err, result, fields) => {
+            if (err) throw err;
+            res.send({
+                message: "Good"
+            })
         })
     })
 })
