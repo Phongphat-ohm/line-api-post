@@ -123,6 +123,18 @@ app.post('/insert', (req, res) => {
     })
 })
 
+
+app.get('/delete', (req, res)=>{
+    const code = req.query.c
+
+    conn.query(`DELETE  FROM menu WHERE code = '${code}'`, (err, result)=>{
+        if(err)throw err;
+        res.send({
+            message: "Good..."
+        })
+    })
+})
+
 app.listen(PORT, () => {
     console.log(`Example app listening at http://localhost:${PORT}`)
 })
